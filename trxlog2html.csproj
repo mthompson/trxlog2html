@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>trxlog2html</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="built_in_templates\jstest_like.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
