@@ -6,6 +6,15 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>trxlog2html</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <Authors>Ryo Hikosaka</Authors>
+    <Company>PRGM</Company>
+    <Description>Trxlog2html is the command line tool for converting the output result of VSTest log to html.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>Ryo HIKOSAKA</Copyright>
+    <PackageProjectUrl>https://github.com/HikosakaRyo/trxlog2html</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HikosakaRyo/trxlog2html</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
   </PropertyGroup>
 
@@ -17,6 +26,10 @@
   <ItemGroup>
     <None Update="built_in_templates\jstest_like.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

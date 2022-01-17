@@ -18,15 +18,55 @@ Trxlog2html is the command line tool for converting the output result of VSTest 
 
 
 
+# Install
+
+You can install this tool from NuGet.org.
+
+
+
+**.NET CLI(Global)**
+
+Install as global tool.
+
+```
+dotnet tool install --global trxlog2html --version 1.0.0
+```
+
+
+
+**.NET CLI(Local)**
+
+Install as local tool
+
+```
+dotnet new tool-manifest
+dotnet tool install --local trxlog2html --version 1.0.0
+```
+
+
+
+*) Difference between global tool and local tool
+
+https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools
+
+
+
 # How to use
 
+Use the following procedure.
+
+1. Run visual studio test and output a Visual Studio Test Results File (TRX).
+2. Convert the TRX to html file using the trxlog2html tool.
 
 
-## Output Visual Studio Test Result File (TRX)
 
-(under construction)
+The details are explained below.
 
-Execute VSTest.Console.exe to output TRX log.
+
+
+## Run visual studio test and output TRX
+
+To output TRX, you need to run Visual Studio tests from the command line using VSTest.Console.exe.
 
 VSTest.Console.exe exists under the Visual Studio installation directory. Since it exists in a deep directory, it is recommended to create a batch like the one below.
 
@@ -36,7 +76,7 @@ VSTest.Console.exe exists under the Visual Studio installation directory. Since 
 @echo off
 setlocal
 
-REM edit VSTEST_DIR to suit youe environment.
+REM edit VSTEST_DIR to suit your environment.
 SET VSTEST_DIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\TestWindow\
 
 REM edit TEST_DLL_PATH to your test project dll path.
@@ -49,7 +89,13 @@ endlocal
 
 
 
-## Convert trx file to html
+*)See below for more information on VSTest.Console.exe.
+
+https://github.com/MicrosoftDocs/visualstudio-docs/blob/main/docs/test/vstest-console-options.md
+
+
+
+## Convert the TRX to html file
 
 Execute the following command from the command prompt.
 
@@ -61,9 +107,19 @@ dotnet run trxlog2html -i [input trx file path] -o [output html file path]
 
 # Customize output html format
 
-(under construction)
+You can use your own template to output an html file with the -t option.
+
+```
+dotnet run trxlog2html -i [input trx file path] -t [your_template_file] -o [output html file path]
+```
 
 
+
+The template is a Razor template format file (cshtml).
+
+By default, the following built-in template is used. Please customize and use it.
+
+https://github.com/HikosakaRyo/trxlog2html/blob/main/built_in_templates/jstest_like.cshtml
 
 
 
